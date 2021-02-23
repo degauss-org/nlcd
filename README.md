@@ -2,7 +2,7 @@
 
 > add NLCD landcover variables to geocoded data
 
-[![Docker Build Status](https://img.shields.io/docker/automated/degauss/nlcd)](https://hub.docker.com/repository/docker/degauss/nlcd/tags
+[![Docker Build Status](https://img.shields.io/docker/automated/degauss/nlcd)](https://hub.docker.com/repository/docker/degauss/nlcd/tags)
 [![GitHub Latest Tag](https://img.shields.io/github/v/tag/degauss-org/nlcd)](https://github.com/degauss-org/nlcd/releases)
 
 ## DeGAUSS example call
