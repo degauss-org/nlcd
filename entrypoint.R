@@ -33,13 +33,9 @@ d <- addNlcdData::get_nlcd_cell_numbers_points(d)
 
 ## join nlcd data
 message('downloading and merging NLCD data...')
-if (opt$buffer_radius == 0){
-  d <- suppressMessages(addNlcdData::get_nlcd_data(d))
-  argument_file_name <- "points"
-} else {
-  d <- suppressMessages(addNlcdData::get_nlcd_data_point_buffer(d, buffer_m = opt$buffer_radius))
-  argument_file_name <- glue::glue("{opt$buffer_radius}m_buffer")
-}
+d <- suppressMessages(addNlcdData::get_nlcd_data_point_buffer(d, buffer_m = opt$buffer_radius))
 
 ## merge back on .row after unnesting .rows into .row
-dht::write_geomarker_file(d = d, filename = opt$filename, argument = argument_file_name)
+dht::write_geomarker_file(d = d,
+                          filename = opt$filename,
+                          argument = glue::glue("{opt$buffer_radius}m_buffer"))

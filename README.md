@@ -11,10 +11,10 @@ If `my_address_file_geocoded.csv` is a file in the current working directory wit
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.0 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_nlcd_0.2.0_400m_buffer.csv` with added columns:
+will produce `my_address_file_geocoded_nlcd_0.2.0_400m_buffer.csv` with the following added columns describing the land classification withing a 400 meter buffer of each point:
 
 - **`impervious`**: average percent impervious of all nlcd cells overlapping the buffer
-- **`green`**: percent of `green = TRUE` nlcd cells overlapping buffer
+- **`green`**: percent of `green = TRUE` nlcd cells overlapping buffer (`green = TRUE` if landcover classification in any category except water, ice/snow, developed medium intensity, developed high intensity, rock/sand/clay)
 - **`primary_urban`**: percent of nlcd cells overlapping buffer with an impervious descriptor classification of primary urban
 - **`primary_rural`**: percent of nlcd cells overlapping buffer with an impervious descriptor classification of primary rural
 - **`secondary_urban`**: percent of nlcd cells overlapping buffer with an impervious descriptor classification of secondary urban
@@ -29,10 +29,6 @@ will produce `my_address_file_geocoded_nlcd_0.2.0_400m_buffer.csv` with added co
 - **`energyprod_rural`**: percent of nlcd cells overlapping buffer with an impervious descriptor classification of energy production rural
 - **`nonimpervious`**: percent of ncld cells overlapping polygon not classified as any of the impervious descriptior categories
 
-what is impervious? 
-what is classified as green?
-more about buffer?
-
 ### Optional Argument
 
 The default buffer radius is 400 meters, but can be changed by supplying an optional argument to the degauss command. For example,
@@ -41,13 +37,7 @@ The default buffer radius is 400 meters, but can be changed by supplying an opti
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.0 my_address_file_geocoded.csv 800
 ```
 
-will produce `my_address_file_geocoded_roads_0`.2.0_800m_buffer.csv, and all output will be values within an 800 m buffer. Supplying a buffer radius of `0` will result in slightly different output, with values describing only the point location with no buffer. Output columns for point data include: 
-
-- **`impervious`**: percent impervious
-- **`landcover_class`**: landcover classfication category (broad)
-- **`landcover`**: landcover classification (detailed)
-- **`green`**: TRUE/FALSE if landcover classification in any category except water, ice/snow, developed medium intensity, developed high intensity, rock/sand/clay (based on published definitions)
-- **`road_type`**: impervious descriptor category (or “non-impervious”)
+will produce `my_address_file_geocoded_roads_0.2.0_800m_buffer.csv`, and all output will be values within an 800 m buffer. 
 
 ## Geomarker Methods
 
