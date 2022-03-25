@@ -11,7 +11,7 @@ If `my_address_file_geocoded.csv` is a file in the current working directory wit
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.0 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_nlcd_0.2.0_400m_buffer.csv` with the following added columns describing the land classification withing a 400 meter buffer of each point:
+will produce `my_address_file_geocoded_nlcd_0.2.0_400m_buffer.csv` with the following added columns describing the land classification within a 400 meter buffer radius of each point:
 
 - **`impervious`**: average percent impervious of all nlcd cells overlapping the buffer
 - **`green`**: percent of `green = TRUE` nlcd cells overlapping buffer (`green = TRUE` if landcover classification in any category except water, ice/snow, developed medium intensity, developed high intensity, rock/sand/clay)
