@@ -47,11 +47,11 @@ The default buffer radius is 400 meters, but can be changed by supplying an opti
 docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.0 my_address_file_geocoded.csv 800
 ```
 
-will produce `my_address_file_geocoded_roads_0.2.0_800m_buffer.csv`, and all output will be values within an 800 m buffer. 
+will produce `my_address_file_geocoded_nlcd_0.2.0_800m_buffer.csv`, and all output will be values within an 800 m buffer. 
 
 ## Geomarker Methods
 
-This container was build using the [addNlcdData](https://geomarker.io/addNlcdData) package.
+This container was built using the [addNlcdData](https://geomarker.io/addNlcdData) package.
 
 ## Geomarker Data
 
