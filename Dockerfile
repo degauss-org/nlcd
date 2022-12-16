@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.0.5
+FROM rocker/r-ver:4.2.2
 
 # DeGAUSS container metadata
 ENV degauss_name="nlcd"
