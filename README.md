@@ -8,10 +8,10 @@
 If `my_address_file_geocoded.csv` is a file in the current working directory with coordinate columns named `lat` and `lon`, then the [DeGAUSS command](https://degauss.org/using_degauss.html#DeGAUSS_Commands):
 
 ```sh
-docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.1 my_address_file_geocoded.csv
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.2 my_address_file_geocoded.csv
 ```
 
-will produce `my_address_file_geocoded_nlcd_0.2.1_400m_buffer.csv` with the following added columns describing the [land classification](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description) within a 400 meter buffer radius of each point:
+will produce `my_address_file_geocoded_nlcd_0.2.2_400m_buffer.csv` with the following added columns describing the [land classification](https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description) within a 400 meter buffer radius of each point:
 
 - **`impervious`**: average percent impervious of all nlcd cells overlapping the buffer
 - **`green`**: percent of `green = TRUE` nlcd cells overlapping buffer (`green = TRUE` if landcover classification in any category except water, ice/snow, developed medium intensity, developed high intensity, rock/sand/clay)
@@ -44,10 +44,10 @@ NLCD uses the following definitions for impervious descriptors categories:
 The default buffer radius is 400 meters, but can be changed by supplying an optional argument to the degauss command. For example,
 
 ```sh
-docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.1 my_address_file_geocoded.csv 800
+docker run --rm -v $PWD:/tmp ghcr.io/degauss-org/nlcd:0.2.2 my_address_file_geocoded.csv 800
 ```
 
-will produce `my_address_file_geocoded_nlcd_0.2.1_800m_buffer.csv`, and all output will be values within an 800 m buffer. 
+will produce `my_address_file_geocoded_nlcd_0.2.2_800m_buffer.csv`, and all output will be values within an 800 m buffer. 
 
 ## Geomarker Methods
 
