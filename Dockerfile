@@ -1,8 +1,8 @@
-FROM rocker/r-ver:4.0.5
+FROM rocker/r-ver:4.2.2
 
 # DeGAUSS container metadata
 ENV degauss_name="nlcd"
-ENV degauss_version="0.2.1"
+ENV degauss_version="0.2.2"
 ENV degauss_description="land cover (imperviousness, land use, greenness)"
 ENV degauss_argument="buffer radius in meters [default: 400]"
 
@@ -28,7 +28,7 @@ RUN apt-get update \
 
 COPY renv.lock .
 
-RUN R --quiet -e "renv::restore(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/__linux__/focal/latest'))"
+RUN R --quiet -e "renv::restore()"
 
 COPY entrypoint.R .
 
