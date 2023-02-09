@@ -6,6 +6,7 @@ dht::greeting()
 withr::with_message_sink("/dev/null", library(dplyr))
 withr::with_message_sink("/dev/null", library(tidyr))
 withr::with_message_sink("/dev/null", library(sf))
+withr::with_message_sink("/dev/null", library(dht))
 
 doc <- "
       Usage:
