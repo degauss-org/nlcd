@@ -28,10 +28,6 @@ d <- dht::read_lat_lon_csv(opt$filename)
 dht::check_for_column(d, 'lat', d$lat)
 dht::check_for_column(d, 'lon', d$lon)
 
-## get ncld cell numbers
-message('finding nlcd cell numbers for each point...')
-d <- addNlcdData::get_nlcd_cell_numbers_points(d)
-
 ## join nlcd data
 message('downloading and merging NLCD data...')
 d <- suppressMessages(addNlcdData::get_nlcd_data_point_buffer(d, buffer_m = as.numeric(opt$buffer_radius)))
