@@ -6,6 +6,7 @@ dht::greeting()
 withr::with_message_sink("/dev/null", library(dplyr))
 withr::with_message_sink("/dev/null", library(tidyr))
 withr::with_message_sink("/dev/null", library(sf))
+withr::with_message_sink("/dev/null", library(dht))
 
 doc <- "
       Usage:
@@ -26,10 +27,6 @@ d <- dht::read_lat_lon_csv(opt$filename)
 
 dht::check_for_column(d, 'lat', d$lat)
 dht::check_for_column(d, 'lon', d$lon)
-
-## get ncld cell numbers
-message('finding nlcd cell numbers for each point...')
-d <- addNlcdData::get_nlcd_cell_numbers_points(d)
 
 ## join nlcd data
 message('downloading and merging NLCD data...')
