@@ -2,7 +2,7 @@ FROM rocker/r-ver:4.4.1
 
 # DeGAUSS container metadata
 ENV degauss_name="nlcd"
-ENV degauss_version="0.2.3"
+ENV degauss_version="0.3.0"
 ENV degauss_description="land cover (imperviousness, land use, greenness)"
 ENV degauss_argument="buffer radius in meters [default: 400]"
 
