@@ -2,8 +2,8 @@ FROM rocker/r-ver:4.4.1
 
 # DeGAUSS container metadata
 ENV degauss_name="nlcd"
-ENV degauss_version="0.3.0"
-ENV degauss_description="land cover (imperviousness, land use, greenness)"
+ENV degauss_version="1.0.0"
+ENV degauss_description="land cover fractional imperviousness"
 ENV degauss_argument="buffer radius in meters [default: 400]"
 
 # add OCI labels based on environment variables too
@@ -14,7 +14,7 @@ LABEL "org.degauss.argument"="${degauss_argument}"
 
 RUN R --quiet -e "install.packages('remotes', repo = c(CRAN = 'https://packagemanager.posit.co/cran/latest'))"
 
-RUN R --quiet -e "remotes::install_github('rstudio/renv@v1.0.7')"
+RUN R --quiet -e "remotes::install_github('rstudio/renv@v1.0.10')"
 
 WORKDIR /app
 

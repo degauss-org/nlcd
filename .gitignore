@@ -2,3 +2,4 @@
 *.fst
 *.qs
 .Rproj.user
+/.Rprofile

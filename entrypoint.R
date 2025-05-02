@@ -25,14 +25,28 @@ if (is.null(opt$buffer_radius)) {
 message("reading input file...")
 d <- dht::read_lat_lon_csv(opt$filename)
 
-dht::check_for_column(d, 'lat', d$lat)
-dht::check_for_column(d, 'lon', d$lon)
+dht::check_for_column(d, "lat", d$lat)
+dht::check_for_column(d, "lon", d$lon)
 
-## join nlcd data
-message('downloading and merging NLCD data...')
-d <- suppressMessages(addNlcdData::get_nlcd_data_point_buffer(d, buffer_m = as.numeric(opt$buffer_radius)))
+d_s2 <-
+  d |>
+  mutate(s2 = s2::s2_lnglat(d$lon, d$lat) |> s2::as_s2_cell()) |>
+  filter(!is.na(s2)) |>
+  mutate(
+    nlcd =
+      appc::get_nlcd_frac_imperv(s2, dates = replicate(length(s2), as.Date("2023-01-01"), simplify = FALSE)) |>
+        purrr::map_dbl(1)
+  ) |>
+  transmute(
+    .row = .row,
+    nlcd_frac_impervious = nlcd / 100
+  )
 
-## merge back on .row after unnesting .rows into .row
-dht::write_geomarker_file(d = d,
-                          filename = opt$filename,
-                          argument = glue::glue("{opt$buffer_radius}m_buffer"))
+d_out <- left_join(d, d_s2, by = ".row")
+
+## merge back on .row
+dht::write_geomarker_file(
+  d = d_s2,
+  filename = opt$filename,
+  argument = glue::glue("{opt$buffer_radius}m_buffer")
+)
