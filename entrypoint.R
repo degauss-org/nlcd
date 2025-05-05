@@ -46,7 +46,7 @@ d_out <- left_join(d, d_s2, by = ".row")
 
 ## merge back on .row
 dht::write_geomarker_file(
-  d = d_s2,
+  d = d_out,
   filename = opt$filename,
   argument = glue::glue("{opt$buffer_radius}m_buffer")
 )
