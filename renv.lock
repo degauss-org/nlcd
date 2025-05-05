@@ -133,12 +133,13 @@
     },
     "appc": {
       "Package": "appc",
-      "Version": "0.5.0",
-      "Source": "Repository",
-      "Repository": "https://geomarker-io.r-universe.dev",
-      "RemoteUrl": "https://github.com/geomarker-io/appc",
-      "RemoteRef": "v0.5.0",
-      "RemoteSha": "16bb5d124c69679a3e8ca4a71a30d9af570cc1ef",
+      "Version": "0.5.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "appc",
+      "RemoteUsername": "geomarker-io",
+      "RemoteSha": "adbd14bb4df909d4e5acb7cefec4b4bce27005b4",
       "Requirements": [
         "R",
         "cli",
@@ -157,7 +158,7 @@
         "tidyr",
         "withr"
       ],
-      "Hash": "c407441f1b9a5c6ffcd8ad8611a0da84"
+      "Hash": "acc54538a8dc31484e0206dcb3f9ab1f"
     },
     "askpass": {
       "Package": "askpass",
