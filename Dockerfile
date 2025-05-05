@@ -12,9 +12,7 @@ LABEL "org.degauss.version"="${degauss_version}"
 LABEL "org.degauss.description"="${degauss_description}"
 LABEL "org.degauss.argument"="${degauss_argument}"
 
-RUN R --quiet -e "install.packages('remotes', repo = c(CRAN = 'https://packagemanager.posit.co/cran/latest'))"
-
-RUN R --quiet -e "remotes::install_github('rstudio/renv@v1.0.10')"
+RUN R --quiet -e "install.packages('renv')"
 
 WORKDIR /app
 
