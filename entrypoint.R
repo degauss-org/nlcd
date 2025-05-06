@@ -28,6 +28,7 @@ d <- dht::read_lat_lon_csv(opt$filename)
 dht::check_for_column(d, "lat", d$lat)
 dht::check_for_column(d, "lon", d$lon)
 
+options(timeout = 3600)
 d_s2 <-
   d |>
   mutate(s2 = s2::s2_lnglat(d$lon, d$lat) |> s2::as_s2_cell()) |>
