@@ -20,6 +20,9 @@ RUN apt-get update \
     && apt-get install -yqq --no-install-recommends \
     libgdal-dev \
     libgeos-dev \
+    cmake \
+    pkg-config \
+    libabsl-dev \
     libudunits2-dev \
     libproj-dev \
     && apt-get clean
