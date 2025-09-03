@@ -2,7 +2,7 @@ FROM rocker/r-ver:4.4.1
 
 # DeGAUSS container metadata
 ENV degauss_name="nlcd"
-ENV degauss_version="1.0.0"
+ENV degauss_version="1.0.1"
 ENV degauss_description="land cover fractional imperviousness"
 ENV degauss_argument="buffer radius in meters [default: 400]"
 
@@ -20,6 +20,9 @@ RUN apt-get update \
     && apt-get install -yqq --no-install-recommends \
     libgdal-dev \
     libgeos-dev \
+    cmake \
+    pkg-config \
+    libabsl-dev \
     libudunits2-dev \
     libproj-dev \
     && apt-get clean
